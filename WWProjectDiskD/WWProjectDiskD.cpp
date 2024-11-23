@@ -3,6 +3,7 @@
 #include <string.h>
 #include <ctime>
 #include <fstream>
+#include <conio.h>
 
 using namespace std;
 int reg(char* username, char* password);
@@ -17,5 +18,4 @@ int main()
 	char* username = new char[16];
 	char* password = new char[64];
 	reg(username, password);
-	return 0;
 }
