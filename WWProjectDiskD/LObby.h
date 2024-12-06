@@ -3,6 +3,7 @@ void rules();
 void accInfo(); 
 void lobby();
 void Tutorial();
+void Play(int& countOfGames , int& countOfWins);
 
 void rules() {
 	cout << "Battleship Game Rules : " << endl;
@@ -42,20 +43,27 @@ void rules() {
 	lobby();
 }
 
-void accInfo() {
+void accInfo(int& countOfGames , int& countOfWins) {
 	char* titul = new char [5];
+	cout << "Write titul : ";
 	cin.getline(titul, 50);
-	cout << "Username : l1k3r " << endl;
+	string username;
+	ifstream outFileName("username.txt");
+	getline(outFileName, username);
+	outFileName.close();
+	cout << "Username :  " << username << endl;
 	cout << "Titul : " << titul << endl;
+	cout << "Winrate : " << (countOfWins / countOfGames) * 100 << endl;
 	delete[]titul;
 	titul = nullptr;
 	lobby();
 }
 
 void lobby() {
+	int countOfGames = 0 , countOfWins = 0;
 	cout << "Hello this a project which realized Ship War with C++" << endl;
 	int choice;
-	cout << "0  - rules \n1 - acc Info\n2 - Tutorial :";
+	cout << "0  - rules \n1 - acc Info\n2 - Tutorial\n3 - Play 1v1 with friend :";
 	cin >> choice;
 	cin.ignore();
 	if (choice == 0) {
@@ -66,5 +74,8 @@ void lobby() {
 	}
 	else if (choice == 2) {
 		Tutorial();
+	}
+	else if (choice == 3) {
+		Play(countOfGames , countOfWins);
 	}
 }
