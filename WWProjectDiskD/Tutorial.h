@@ -229,9 +229,9 @@ bool GameMode(char field[6][6], char field2[6][6], int& countOfMoves, int& playe
 
 
 
-void Tutorial() {
-	srand(time(NULL));
-	char playerField[6][6], botField[6][6], viewField[6][6];
+void Tutorial() { // tutorial for user
+	
+	char playerField[6][6], botField[6][6], viewField[6][6]; // 
 	int letterKey = 0;
 	int numKey = 0;
 	fillPlayerArr(playerField);

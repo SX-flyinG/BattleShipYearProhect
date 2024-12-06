@@ -16,6 +16,7 @@ void registration(char* username, char* password);
 
 int main()
 {
+	srand(time(NULL));
 	char* username = new char[16];
 	char* password = new char[64];
 	reg(username, password);
