@@ -4,7 +4,7 @@ void accInfo(int& countOfGames, int& countOfWins);
 void lobby();
 void Tutorial();
 void Play(int& countOfGames , int& countOfWins);
-
+void EasyBot(int& countOfGames, int& countOfWins);
 void MediumBot(int& countOfGames, int& countOfWins);
 
 //Function which write rules of game and return to main lobby
