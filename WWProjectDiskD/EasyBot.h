@@ -330,6 +330,21 @@ void BotPlacing(char poleBot[11][11] , char poleUser[11][11]) {
 
 
 void EasyBot(int& countOfGames, int& countOfWins) {
+    int letterKey = 0;
+    int numKey = 0;
+    int wayKey = 0;
+    int countOfDestroyShip = 4;
+    int countOfCruiseShip = 3;
+    int countOfSubmarines = 2;
+    int countOfBattleShips = 1;
+    char polePlayer[11][11];
+    char poleBot[11][11];
+    char player1Shots[11][11];
+    char botShots[11][11];
+    int countOfMoves = 0;
+    int swichSides = 0;
+    int countOfShips1 = 20;
+    int countOfBotsShip = 20;
     fillArray(polePlayer);
     fillArray(player1Shots);
     fillArray(botShots);
