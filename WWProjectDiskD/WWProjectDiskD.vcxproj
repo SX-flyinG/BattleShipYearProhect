@@ -130,7 +130,9 @@
     <ClCompile Include="WWProjectDiskD.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="EasyBot.h" />
     <ClInclude Include="LObby.h" />
+    <ClInclude Include="MediumBot.h" />
     <ClInclude Include="PlayWithFriend.h" />
     <ClInclude Include="registration.h" />
     <ClInclude Include="Tutorial.h" />

@@ -32,5 +32,11 @@
     <ClInclude Include="PlayWithFriend.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="MediumBot.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EasyBot.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

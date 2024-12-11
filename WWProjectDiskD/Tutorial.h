@@ -121,25 +121,21 @@ void PlaceDestroyers(int destroyer, int letterKey, int numKey, char field[6][6])
 
 void PlaceDestroyersBot(int destroyer, char field[6][6]) {
 	while (destroyer > 0) {
-		int x, y;
-		x = rand() % 5 + 1;
-		y = rand() % 5 + 1;
-
+		int x = rand() % 5 + 1;
+		int y = rand() % 5 + 1;
 
 		if (field[x][y] == '.') {
-
 			field[x][y] = 'D';
 			MarkSurroundings(x, y, field);
 			destroyer--;
 		}
-
 	}
 }
 
 void MarkSurroundings(int letterKey, int numKey, char pole[6][6]) {
 	for (int i = letterKey - 1; i <= letterKey + 1; i++) {
 		for (int j = numKey - 1; j <= numKey + 1; j++) {
-			if (i >= 1 && i <= 10 && j >= 1 && j <= 10 && pole[i][j] == '.') {
+			if (i >= 1 && i <= 5 && j >= 1 && j <= 5 && pole[i][j] == '.') {
 				pole[i][j] = '-';
 			}
 		}
@@ -154,7 +150,7 @@ void PlayerMove(char field[6][6], char field2[6][6], int& countOfMoves, int& bot
 		cout << "You already attacked this position. Try again." << endl;
 		return;
 	}
-	if (field2[letterKey][numKey] != '.' && field2[letterKey][numKey] != 'X') {
+	if (field2[letterKey][numKey] == 'D' ) {
 		cout << "Hit!" << endl;
 		viewField[letterKey][numKey] = 'X';
 		field2[letterKey][numKey] = 'X';

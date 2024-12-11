@@ -1,10 +1,13 @@
-
+// Delete a problem with placement of functions
 void rules();
-void accInfo(); 
+void accInfo(int& countOfGames, int& countOfWins);
 void lobby();
 void Tutorial();
 void Play(int& countOfGames , int& countOfWins);
 
+void MediumBot(int& countOfGames, int& countOfWins);
+
+//Function which write rules of game and return to main lobby
 void rules() {
 	cout << "Battleship Game Rules : " << endl;
 	cout << "The objective of the game is to locate and sink all of your opponent's ships before they sink yours. " << endl;
@@ -43,39 +46,81 @@ void rules() {
 	lobby();
 }
 
+/*Function which add a choose a lvl of both whith which u want to play
+Easy  , Medium or Hard
+Each bot have some differents , like play ships and make shots*/
+void BotMenu(int & countOfGames  , int & countOfWins) {
+	int choice;
+	cout << "Hello , u are in Bot Menu. U can choose one of three level of bot(easy , medium , hard)\n0 - back to lobby\n1 - easy\n2 - medium\n3 - hard" << endl;
+	cin >> choice;
+	cin.ignore();
+	while (choice < 0 || choice > 3) {
+		cout << "\n0 - back to lobby\n1 - easy\n2 - medium\n3 - hard" << endl;
+		cin >> choice;
+		cin.ignore();
+	}
+	if (choice == 1) {
+		//Play with easy bot
+		EasyBot(countOfGames, countOfWins);
+	}
+	else if (choice == 2) {
+		//Play with medium bot
+		MediumBot(countOfGames , countOfWins);
+	}
+	else if (choice == 3) {
+		//PLay with hard bot
+
+	}
+	else {
+		//return to lobby
+		lobby();
+	}
+}
+
+/*Function which write info about user
+like nickname . titul , winrate(Wins \ count of Games)
+Give chance to watch achievements , level 
+And change titul , username and password*/
 void accInfo(int& countOfGames , int& countOfWins) {
-	char* titul = new char [5];
-	cout << "Write titul : ";
-	cin.getline(titul, 50);
 	string username;
 	ifstream outFileName("username.txt");
 	getline(outFileName, username);
 	outFileName.close();
 	cout << "Username :  " << username << endl;
-	cout << "Titul : " << titul << endl;
-	cout << "Winrate : " << (countOfWins / countOfGames) * 100 << endl;
-	delete[]titul;
-	titul = nullptr;
+	cout << "Titul : " << "No titul" << endl;
+	if (countOfGames == 0) {
+		cout << "Winrate : 0% " << endl;
+	}
+	else {
+		cout << "Winrate : " << (countOfWins / countOfGames) * 100 << endl;
+	}
+	
 	lobby();
 }
 
+
+/*Main lobby in which u can play tutorial if u never play Battle Ship
+Can choose to play with ur friend or bot and watch rules and statistic*/
 void lobby() {
 	int countOfGames = 0 , countOfWins = 0;
 	cout << "Hello this a project which realized Ship War with C++" << endl;
 	int choice;
-	cout << "0  - rules \n1 - acc Info\n2 - Tutorial\n3 - Play 1v1 with friend :";
+	cout << "0 - Exit\n1  - rules \n2 - acc Info\n3 - Tutorial\n4 - Play 1v1 with friend\n5 - Play with bot :";
 	cin >> choice;
 	cin.ignore();
-	if (choice == 0) {
+	if (choice == 1) {
 		rules();
 	}
-	else if (choice == 1) {
-		accInfo();
-	}
 	else if (choice == 2) {
-		Tutorial();
+		accInfo(countOfGames, countOfWins);
 	}
 	else if (choice == 3) {
+		Tutorial();
+	}
+	else if (choice == 4) {
 		Play(countOfGames , countOfWins);
+	}
+	else if (choice == 5) {
+		BotMenu(countOfGames, countOfWins);
 	}
 }
