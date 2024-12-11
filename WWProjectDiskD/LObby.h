@@ -8,6 +8,7 @@ void EasyBot(int& countOfGames, int& countOfWins);
 void MediumBot(int& countOfGames, int& countOfWins);
 
 //Function which write rules of game and return to main lobby
+//i am a genious
 void rules() {
 	cout << "Battleship Game Rules : " << endl;
 	cout << "The objective of the game is to locate and sink all of your opponent's ships before they sink yours. " << endl;
